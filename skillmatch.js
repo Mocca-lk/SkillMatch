@@ -41,3 +41,25 @@ const vagas = [
 
 
 // console.log(vagas[0]) - Teste de validação feature Vagas
+
+//Comparar compatibilidade do candidato com a vaga:
+vagas.forEach(vaga => {
+    //Filtrando os requisitos das vagas
+    const habilidadesCompativeis = vaga.requisitos.filter(requisito => candidato.habilidades.includes(requisito))
+
+    //Calcular habilidades Faltantes
+    const habilidadesFaltantes = vaga.requisitos.filter(requisito => !candidato.habilidades.includes(requisito))
+
+    //Calcular porcentagem de compatibilidade
+    const totalRequisitosVaga = vaga.requisitos.length
+    const porcentagem = (habilidadesCompativeis.length / totalRequisitosVaga) * 100
+
+    console.log(`
+        Empresa: ${vaga.empresa}
+        Vaga: ${vaga.cargo}
+        Compatibilidade de: ${porcentagem.toFixed(0)}% 
+        Habilidades Encontradas: ${habilidadesCompativeis}
+        Habilidades Faltantes: ${habilidadesFaltantes}
+        `)
+
+})
