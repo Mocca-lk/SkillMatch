@@ -66,6 +66,8 @@ vagas.forEach(vaga => {
         }
 
 
+
+
     console.log(`
         Empresa: ${vaga.empresa}
         Vaga: ${vaga.cargo}
